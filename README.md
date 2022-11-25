@@ -1,4 +1,4 @@
-# Island problems
+# Problems with Islands
 
 Логические задачки с островами.
 
