@@ -173,51 +173,107 @@ void TestCountIslands()
 
 void TestCountSubIslands()
 {
-    /*{
-    Solution s;
-    vector<vector<int>> island1, island2;
-    island1 = {
-        {1,0,1,0,1},
-        {1,1,1,1,1},
-        {0,0,0,0,0},
-        {1,1,1,1,1},
-        {1,0,1,0,1} };
-    island2 = {
-        {0,0,0,0,0},
-        {1,1,1,1,1},
-        {0,1,0,1,0},
-        {0,1,0,1,0},
-        {1,0,0,0,1} };
-    assert(s.CountSubIslands(island1, island2) == 2);
-    island1 = {
-        {1, 1, 1, 1, 0, 0},
-        {1, 1, 0, 1, 0, 0},
-        {1, 0, 0, 1, 1, 1},
-        {1, 1, 1, 0, 0, 1},
-        {1, 1, 1, 1, 1, 0},
-        {1, 0, 1, 0, 1, 0},
-        {0, 1, 1, 1, 0, 1},
-        {1, 0, 0, 0, 1, 1},
-        {1, 0, 0, 0, 1, 0},
-        {1, 1, 1, 1, 1, 0} };
-    island2 = {
-        {1, 1, 1, 1, 0, 1},
-        {0, 0, 1, 0, 1, 0},
-        {1, 1, 1, 1, 1, 1},
-        {0, 1, 1, 1, 1, 1},
-        {1, 1, 1, 0, 1, 0},
-        {0, 1, 1, 1, 1, 1},
-        {1, 1, 0, 1, 1, 1},
-        {1, 0, 0, 1, 0, 1},
-        {1, 1, 1, 1, 1, 1},
-        {1, 0, 0, 1, 0, 0} };
-    assert(s.CountSubIslands(island1, island2) == 0);
-}//*/
+    Island s;
+    {
+        std::vector<std::vector<int>> island1 = {
+            {1} };
+        std::vector<std::vector<int>> island2 = {
+            {0} };
+        assert(s.CountSubIslands(island1, island2) == 0);
+    }
+    {
+        std::vector<std::vector<int>> island1 = {
+            {1} };
+        std::vector<std::vector<int>> island2 = {
+            {1} };
+        assert(s.CountSubIslands(island1, island2) == 1);
+    }
+    {
+        std::vector<std::vector<int>> island1 = {
+            {1,1,1} };
+        std::vector<std::vector<int>> island2 = {
+            {1,0,1} };
+        assert(s.CountSubIslands(island1, island2) == 2);
+    }
+    {
+        std::vector<std::vector<int>> island1 = {
+            {1,0,1,0,1},
+            {1,1,1,1,1},
+            {0,0,0,0,0},
+            {1,1,1,1,1},
+            {1,0,1,0,1} };
+        std::vector<std::vector<int>> island2 = {
+            {0,0,0,0,0},
+            {1,1,1,1,1},
+            {0,1,0,1,0},
+            {0,1,0,1,0},
+            {1,0,0,0,1} };
+        assert(s.CountSubIslands(island1, island2) == 2);
+    }
+    {
+        std::vector<std::vector<int>> island1 = {
+            {1,1,1,0,0},
+            {0,1,1,1,1},
+            {0,0,0,0,0},
+            {1,0,0,0,0},
+            {1,1,0,1,1} };
+        std::vector<std::vector<int>> island2 = {
+            {1,1,1,0,0},
+            {0,0,1,1,1},
+            {0,1,0,0,0},
+            {1,0,1,1,0},
+            {0,1,0,1,0} };
+        assert(s.CountSubIslands(island1, island2) == 3);
+    }
+    {
+        std::vector<std::vector<int>> island1 = {
+            {1,0,1,0,1},
+            {1,1,1,1,1},
+            {0,0,0,0,0},
+            {1,1,1,1,1},
+            {1,0,1,0,1} };
+        std::vector<std::vector<int>> island2 = {
+            {0,0,0,0,0},
+            {1,1,1,1,1},
+            {0,1,0,1,0},
+            {0,1,0,1,0},
+            {1,0,0,0,1} };
+        assert(s.CountSubIslands(island1, island2) == 2);
+    }
+    {
+        std::vector<std::vector<int>> island1 = {
+            {1,1,1,1,0,0},
+            {1,1,0,1,0,0},
+            {1,0,0,1,1,1},
+            {1,1,1,0,0,1},
+            {1,1,1,1,1,0},
+            {1,0,1,0,1,0},
+            {0,1,1,1,0,1},
+            {1,0,0,0,1,1},
+            {1,0,0,0,1,0},
+            {1,1,1,1,1,0} };
+        std::vector<std::vector<int>> island2 = {
+            {1,1,1,1,0,1},
+            {0,0,1,0,1,0},
+            {1,1,1,1,1,1},
+            {0,1,1,1,1,1},
+            {1,1,1,0,1,0},
+            {0,1,1,1,1,1},
+            {1,1,0,1,1,1},
+            {1,0,0,1,0,1},
+            {1,1,1,1,1,1},
+            {1,0,0,1,0,0} };
+        assert(s.CountSubIslands(island1, island2) == 0);
+    }
+
+
+    std::cout << "CountSubIslands test is OK!" << std::endl;
 }
 
 void AllTests()
 {
 	TestCountIslands();
+    TestCountSubIslands();
 
 	std::cout << "All the tests are OK!" << std::endl;
 
